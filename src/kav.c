@@ -64,7 +64,7 @@ void handle_tests(char *argx) {
     }
     else if (strcmp(argx, "resolution")==0) {
         get_screen_res(ptr);
-        printf("Screen Resolution :: %dx%d\n",ptr->screen_h, ptr->screen_w);
+        printf("Screen Resolution :: %dx%d\n",ptr->screen_w, ptr->screen_h);
     }
     else if (strcmp(argx, "term-info")==0) {
         x_term_set(ptr);
