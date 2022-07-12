@@ -1,13 +1,13 @@
-FILE := src/kav.c
+FILES := src/kav.c
 
 CFLAGS := -march=native -O3 
 CC = gcc
 
 default:
-	$(CC) $(FILE) $(CFLAGS) -o kav 
+	$(CC) $(FILES) $(CFLAGS) -o kav 
 
 test:
-	$(CC) $(FILE) $(CFLAGS) -o test
+	$(CC) $(FILES) $(CFLAGS) -o test
 	./test term-info
 	./test monitor-count
 	./test resolution

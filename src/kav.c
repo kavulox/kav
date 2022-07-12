@@ -49,12 +49,29 @@ void get_screen_res(System *ptr) {
 }
 
 
+void do_all(System *ptr) {
+    get_screen_res(ptr);
+    set_monitor_count(ptr);
+    x_term_set(ptr);
+    net_grab_ip(ptr);
+}
 
+
+void dump_all(System *ptr) {
+    do_all(ptr);
+    printf("Resolution :: %dx%d\n",ptr->screen_w, ptr->screen_h);
+    printf("Monitor Count :: %d\n",ptr->mon_count);
+    printf("Term Info :: %d | %d\n",ptr->term_x, ptr->term_y);
+    printf("Ip Addr :: %s\n",ptr->ip_addr);
+}
 void toggle_gui(); // will make front end gui   ;
 
 void handle_tests(char *argx) {
     System sys, *ptr = &sys;
-    if (strcmp(argx, "ip")==0) {
+    if (strcmp(argx, "full")==0) {
+        dump_all(ptr);
+    }
+    else if (strcmp(argx, "ip")==0) {
         net_grab_ip(ptr);
         printf("Ip :: %s\n",ptr->ip_addr);
     }
